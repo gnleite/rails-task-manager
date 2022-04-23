@@ -1,12 +1,16 @@
 <h1>Update the task</h1>
+<p><% if @task.completed %>
+      <i class="fa-solid fa-square-check"></i>
+    <% else %>
+      <i class="fa-solid fa-square"></i>
+    <% end %>
+  <%= link_to "Completed", task_done_path(@task), method: :patch %></p>
 
 <%= form_for(@task) do |f|%>
   <%= f.label :title %>
   <%= f.text_field :title %><br/>
   <%= f.label :details %>
   <%= f.text_field :details %><br/>
-  <%= f.check_box :completed %>
-  <%= f.label "Complete" %><br/>
   <%= f.submit %>
 <% end %>
 
